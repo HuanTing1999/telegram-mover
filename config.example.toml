@@ -1,0 +1,62 @@
+# Python 3.11+. API_ID/API_HASH 环境变量优先于这里的值。
+[telegram]
+# api_id = 你的应用ID  # 填写整数，或设置 API_ID 环境变量
+# api_hash = "你的32位API_HASH"  # 或设置 API_HASH 环境变量
+session = "data/telegram_user"
+
+[sync]
+# 必须自行加入/有权访问源；用户在目标频道须有发帖权限。
+source = "@source_channel"
+target = "@target_channel"  # download_only 可删除本行
+source_topic_id = 0  # 0=整个源群/所有话题；1=综合；其它值为所选话题 ID
+target_topic_id = 0  # 0=目标默认位置；1=综合；可在界面选择目标群下的话题
+# 也可填写整数 source = -1001234567890（不要加引号）
+mode = "reupload"  # download_only | forward | reupload | download_then_forward
+sync_comments = true
+# 独立于正文模式。普通频道评论区的直接转发受 API 限制，见 README。
+comment_mode = "reupload"  # reupload | download_only
+# mode=download_only 时 comment_mode 必须也是 download_only。
+start_id = 0  # 仅处理 ID > 此值的正文；初次从头处理用 0
+poll_interval = 60  # 0=单次；正数=循环间隔秒
+settle_seconds = 5  # 尚未稳定的尾部消息/相册等下轮；最小 2
+max_flood_wait = 300  # 超过此服务器等待秒数则保存冷却并停止；与 limits.max_auto_wait 同时生效
+send_delay = 0.0  # 兼容旧版的发送后额外暂停；主要限速改由下方 limits 负责
+
+[storage]
+database = "data/state.sqlite3"
+download_dir = "downloads"
+auto_cleanup_forwarded = false  # 仅 download_then_forward：确认转发成功后清理本次下载的媒体；其它模式不生效
+download_connections = 4  # 下载并行数：整数1..8；仅影响下载，不改变发送限速或历史进度，实际速度取决于网络
+
+# 以下是本工具策略，不是 Telegram 官方安全上限，不能保证账号免受限制。
+# 不填本表时也会启用这些默认值；调整不重置已保存的账号计数/冷却。
+[limits]
+enabled = true
+min_send_interval = 15.0  # 两次发送操作至少间隔15秒，相册一次操作
+min_request_interval = 1.0  # 显式读取请求之间的间隔
+max_messages_per_minute = 20  # 滚动60秒；相册N个成员占N条，正文评论一起计
+max_messages_per_hour = 200  # 滚动1小时
+max_messages_per_day = 1000  # 滚动24小时，不在午夜重置
+max_messages_per_run = 200  # 当前进程总预算，循环检查时不重置
+max_runtime_minutes = 60.0  # 包含等待；0表示不设此项
+max_auto_wait = 300.0  # 单次限速等待全过程上限；0表示不自动等待
+retry_wait_errors = 3  # 只重试明确的FloodWait/SlowModeWait，网络不确定结果仍停止
+wait_padding = 3.0  # 服务端要求的等待秒数外再加3秒
+active_start = "00:00"  # 两个时间相同=全天；例如08:00到23:00可限制发送时段
+active_end = "00:00"  # 支持22:00到06:00这种跨午夜时段
+timezone = "+08:00"  # 固定UTC偏移，北京时间
+
+# 本地文字广告过滤，不读取图片/视频中的文字，不提供 OCR。
+# 相册任意成员命中则整组跳过；规则仅作用于之后尚未处理的消息。
+[filters]
+enabled = true
+keywords = ["广告合作", "商务合作", "付费推广", "广告投放", "开户链接", "送彩金", "paid promotion", "sponsored post"]
+regex_patterns = []  # 最多30条，每条1024字符；每次搜索最多0.05秒，超时保守拦截
+blocked_domains = []  # 只填域名，如 "ads.example.com"；包括其子域，匹配边界不误伤相似域
+allowed_keywords = []  # 明确整组豁免自动规则；不能覆盖手动屏蔽，请谨慎配置
+allowed_domains = []  # 只豁免“全部链接”规则，不能覆盖关键词或域名黑名单
+block_all_links = false
+block_buttons = false
+apply_to_comments = true
+apply_to_downloads = false  # 默认纯下载备份不筛掉内容
+blocked_message_keys = []  # 手动屏蔽示例 ["-1001234567890:42"]，不单独按消息ID匹配
