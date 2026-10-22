@@ -1,0 +1,123 @@
+[
+  {
+    "package": "Telethon",
+    "version": "1.45.0",
+    "license": "MIT",
+    "files": [
+      {
+        "path": "licenses/dependencies/Telethon-1.45.0-LICENSE",
+        "sha256": "7d5282900d8e9ebe0f3d3742178a1d236e76d81184f4fc8290e221135f2b0b2a"
+      }
+    ]
+  },
+  {
+    "package": "cryptg",
+    "version": "0.6.0",
+    "license": "CC0",
+    "files": [
+      {
+        "path": "licenses/dependencies/cryptg-0.6.0-LICENSE.txt",
+        "sha256": "f4e7f373b9b996950337e8d41a4a2939c2d90b7725e9baf3d5084a22717ad328"
+      }
+    ]
+  },
+  {
+    "package": "regex",
+    "version": "2026.9.29",
+    "license": "Apache-2.0 AND CNRI-Python",
+    "files": [
+      {
+        "path": "licenses/dependencies/regex-2026.9.29-LICENSE.txt",
+        "sha256": "3d220c06594b826bbabf110312f60f385f99e57e529fa4b9e536f79091f8b4c7"
+      }
+    ]
+  },
+  {
+    "package": "tomli-w",
+    "version": "1.2.0",
+    "license": null,
+    "files": [
+      {
+        "path": "licenses/dependencies/tomli-w-1.2.0-LICENSE",
+        "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe"
+      }
+    ]
+  },
+  {
+    "package": "pyaes",
+    "version": "1.6.1",
+    "license": "License :: OSI Approved :: MIT License",
+    "files": [
+      {
+        "path": "licenses/dependencies/pyaes-1.6.1-LICENSE.txt",
+        "sha256": "1efe6c78b28b4203d397ea9b68bdc9c658d21cd9afaf8ae8223def83f2a7ebbd"
+      }
+    ]
+  },
+  {
+    "package": "rsa",
+    "version": "4.9.1",
+    "license": "Apache-2.0",
+    "files": [
+      {
+        "path": "licenses/dependencies/rsa-4.9.1-LICENSE",
+        "sha256": "073f28b7d389c8fe74f607e17c27f81eaa5ace69edc43a884f23f41b41c5c726"
+      }
+    ]
+  },
+  {
+    "package": "pyasn1",
+    "version": "0.6.4",
+    "license": "BSD-2-Clause",
+    "files": [
+      {
+        "path": "licenses/dependencies/pyasn1-0.6.4-LICENSE.rst",
+        "sha256": "2aad5fc00f705c4a1addb83eed10a6a75d286a3779f0cf8519d87e62bc4735fd"
+      }
+    ]
+  },
+  {
+    "package": "PySide6",
+    "version": "6.11.2",
+    "license": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+    "files": [
+      {
+        "path": "licenses/dependencies/PySide6-6.11.2-LicenseRef-Qt-Commercial.txt",
+        "sha256": "4f54763ac0fe2abd8f7f8d8fe370a94a08ebf84786aa0b91045bd6628deb08a3"
+      }
+    ]
+  },
+  {
+    "package": "PySide6_Essentials",
+    "version": "6.11.2",
+    "license": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+    "files": [
+      {
+        "path": "licenses/dependencies/PySide6_Essentials-6.11.2-LicenseRef-Qt-Commercial.txt",
+        "sha256": "4f54763ac0fe2abd8f7f8d8fe370a94a08ebf84786aa0b91045bd6628deb08a3"
+      }
+    ]
+  },
+  {
+    "package": "shiboken6",
+    "version": "6.11.2",
+    "license": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+    "files": [
+      {
+        "path": "licenses/dependencies/shiboken6-6.11.2-LicenseRef-Qt-Commercial.txt",
+        "sha256": "4f54763ac0fe2abd8f7f8d8fe370a94a08ebf84786aa0b91045bd6628deb08a3"
+      }
+    ]
+  },
+  {
+    "package": "PyInstaller",
+    "version": "6.22.3",
+    "license": "GPLv2-or-later with a special exception which allows to use PyInstaller to build and distribute non-free programs (including commercial ones)",
+    "files": [
+      {
+        "path": "licenses/dependencies/PyInstaller-6.22.3-COPYING.txt",
+        "sha256": "0598064c7d2718e38d7914a7d08343b2fa008e3bea9ebba2aa7a6ffa5900dd64"
+      }
+    ]
+  }
+]
